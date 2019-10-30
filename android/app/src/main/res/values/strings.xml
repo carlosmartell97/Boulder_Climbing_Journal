@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Boulder Climbing Journal</string>
+    <string name="menu_add_session_button">Add Session</string>
+    <string name="menu_sessions_log_button">Sessions Log</string>
+    <string name="menu_stats_button">Stats</string>
+    <string name="menu_grade_conversion_button">Grade Conversion</string>
 </resources>
