@@ -19,7 +19,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="@string/menu_add_session_button"
-            app:icon="@drawable/ic_launcher_foreground"/>
+            app:icon="@drawable/ic_dummy"/>
 
         <Space
             android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="@string/menu_sessions_log_button"
-            app:icon="@drawable/ic_launcher_foreground"/>
+            app:icon="@drawable/ic_dummy"/>
 
         <Space
             android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="@string/menu_stats_button"
-            app:icon="@drawable/ic_launcher_foreground"/>
+            app:icon="@drawable/ic_dummy"/>
 
         <Space
             android:layout_width="wrap_content"
@@ -61,6 +61,6 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="@string/menu_grade_conversion_button"
-            app:icon="@drawable/ic_launcher_foreground"/>
+            app:icon="@drawable/ic_dummy"/>
 
 </LinearLayout>
