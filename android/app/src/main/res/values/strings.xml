@@ -4,4 +4,6 @@
     <string name="menu_sessions_log_button">Sessions Log</string>
     <string name="menu_stats_button">Stats</string>
     <string name="menu_grade_conversion_button">Grade Conversion</string>
+    <string name="add_session_location">Where?</string>
+    <string name="add_session_date_question">Today?</string>
 </resources>

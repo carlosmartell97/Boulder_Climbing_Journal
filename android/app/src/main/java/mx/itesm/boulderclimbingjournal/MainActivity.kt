@@ -1,5 +1,6 @@
 package mx.itesm.boulderclimbingjournal
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         addSessionsButton.setOnClickListener(View.OnClickListener {
             Log.e(tag, "add session button clicked.")
+            startActivity(Intent(this, AddSessionActivity::class.java))
         })
         sessionsLogButton.setOnClickListener(View.OnClickListener {
             Log.e(tag, "sessions log button clicked.")
