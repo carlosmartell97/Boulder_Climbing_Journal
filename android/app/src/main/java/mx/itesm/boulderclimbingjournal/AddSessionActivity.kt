@@ -11,15 +11,6 @@ class AddSessionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_session)
 
-        var button1: Button = findViewById<Button>(R.id.uno)
-        var button2: Button = findViewById<Button>(R.id.dos)
-        button1.setOnClickListener{
-            loadDateQuestionFragment()
-        }
-        button2.setOnClickListener{
-            loadDateSelectionFragmentTodayYes()
-        }
-
         loadDateQuestionFragment()
     }
 

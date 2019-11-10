@@ -6,4 +6,9 @@
     <string name="menu_grade_conversion_button">Grade Conversion</string>
     <string name="add_session_location">Where?</string>
     <string name="add_session_date_question">Today?</string>
+    <string name="add_session_add_climb_button">Add Climb</string>
+    <string name="add_session_climbs_logged">climbs logged:</string>
+    <string name="add_session_notes">session notes</string>
+    <string name="add_session_points_text_initial">0 points</string>
+    <string name="add_session_finish_session">Finish Session</string>
 </resources>
