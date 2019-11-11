@@ -2,8 +2,11 @@ package mx.itesm.boulderclimbingjournal
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class AddSessionActivity : AppCompatActivity() {
 
@@ -12,6 +15,12 @@ class AddSessionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_session)
 
         loadDateQuestionFragment()
+
+        val recyclerViewLoggedClimbs: RecyclerView = findViewById(R.id.recyclerViewLoggedClimbs)
+        recyclerViewLoggedClimbs.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+
+        val adapter = RecyclerViewLoggedClimbsAdapter()
+        recyclerViewLoggedClimbs.adapter = adapter
     }
 
     private fun loadDateQuestionFragment(){
