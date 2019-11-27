@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P9i-Zr-OSL">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P9i-Zr-OSL">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -168,6 +166,9 @@
                                                         <real key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="5eM-tb-Etz" kind="show" id="KQS-1j-INb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -198,6 +199,9 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="JUc-0c-srS" kind="show" id="fe4-vp-UNf"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zuo-UA-3h7">
                                 <rect key="frame" x="46" y="322" width="322" height="344"/>
@@ -222,7 +226,6 @@
                                     <constraint firstAttribute="width" constant="180" id="dcI-Re-bt3"/>
                                     <constraint firstAttribute="height" constant="30" id="ynG-le-rWj"/>
                                 </constraints>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -247,11 +250,28 @@
                     </view>
                     <connections>
                         <outlet property="dateButton" destination="cnS-yR-TiK" id="iyT-u4-hhd"/>
+                        <outlet property="locationButton" destination="41P-Zs-CiO" id="Hej-lT-h70"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Y5-hU-4ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2111.594202898551" y="-498.21428571428567"/>
+            <point key="canvasLocation" x="2080" y="-847"/>
+        </scene>
+        <!--Add Climb-->
+        <scene sceneID="GbD-cu-LG9">
+            <objects>
+                <viewController id="JUc-0c-srS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="meO-9N-HQT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3uS-FK-pFa"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Climb" id="NgH-ex-gyv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m3m-jU-6H8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3549" y="-996"/>
         </scene>
         <!--Sessions Log-->
         <scene sceneID="MTg-7E-xeX">
@@ -266,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YFm-RZ-uwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2849" y="-434"/>
+            <point key="canvasLocation" x="2080" y="-202"/>
         </scene>
         <!--Stats-->
         <scene sceneID="uqf-1O-RwY">
@@ -281,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YPp-cR-aRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3572" y="-348"/>
+            <point key="canvasLocation" x="2809" y="-40"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="ldz-Fv-XrC">
@@ -578,6 +598,139 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbB-xt-VSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="533" y="-315"/>
+        </scene>
+        <!--Add Location-->
+        <scene sceneID="mmO-wz-gH4">
+            <objects>
+                <viewController id="5eM-tb-Etz" customClass="AddLocationViewController" customModule="Boulder_Climbing_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xr7-bj-a7t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEF-YC-b2V">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OnN-ag-Gc8">
+                                        <rect key="frame" x="54" y="323" width="306" height="128"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uT-NU-rQU" customClass="RoundButton" customModule="Boulder_Climbing_Journal" customModuleProvider="target">
+                                                <rect key="frame" x="97" y="78" width="112" height="42"/>
+                                                <color key="backgroundColor" red="0.1692216694355011" green="0.68346971273422241" blue="0.64560496807098389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="bWe-KV-u5A"/>
+                                                    <constraint firstAttribute="width" constant="112" id="hcJ-Nx-2yX"/>
+                                                </constraints>
+                                                <state key="normal" title="add one">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addFirstGymButtonClicked:" destination="5eM-tb-Etz" eventType="touchUpInside" id="DAr-6u-Xm6"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't added any gyms yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04v-8a-FLQ">
+                                                <rect key="frame" x="29.5" y="8" width="247" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="04v-8a-FLQ" firstAttribute="top" secondItem="OnN-ag-Gc8" secondAttribute="top" constant="8" id="L5H-Vo-Eze"/>
+                                            <constraint firstItem="04v-8a-FLQ" firstAttribute="centerX" secondItem="OnN-ag-Gc8" secondAttribute="centerX" id="Nrt-zx-pNO"/>
+                                            <constraint firstItem="2uT-NU-rQU" firstAttribute="centerX" secondItem="OnN-ag-Gc8" secondAttribute="centerX" id="pcs-3f-2gv"/>
+                                            <constraint firstAttribute="width" constant="306" id="tig-ln-maH"/>
+                                            <constraint firstAttribute="height" constant="128" id="uEG-Ju-82z"/>
+                                            <constraint firstAttribute="bottom" secondItem="2uT-NU-rQU" secondAttribute="bottom" constant="8" id="yDi-mK-WRO"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="OnN-ag-Gc8" firstAttribute="centerY" secondItem="xEF-YC-b2V" secondAttribute="centerY" id="aN3-Sv-jxk"/>
+                                    <constraint firstItem="OnN-ag-Gc8" firstAttribute="centerX" secondItem="xEF-YC-b2V" secondAttribute="centerX" id="bME-0i-PUX"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7l-KO-vYx">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJq-Tb-Meq" customClass="RoundButton" customModule="Boulder_Climbing_Journal" customModuleProvider="target">
+                                        <rect key="frame" x="141" y="674" width="132" height="44"/>
+                                        <color key="backgroundColor" red="0.1692216694" green="0.68346971270000001" blue="0.64560496810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Obl-N8-JUn"/>
+                                            <constraint firstAttribute="width" constant="132" id="aQg-z6-q7z"/>
+                                        </constraints>
+                                        <state key="normal" title="add new gym">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addNewGymButtonClicked:" destination="5eM-tb-Etz" eventType="touchUpInside" id="VAi-MR-VhZ"/>
+                                        </connections>
+                                    </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Vd-pb-nYE">
+                                        <rect key="frame" x="40" y="60" width="334" height="583"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="vEN-x4-WSl">
+                                                <rect key="frame" x="0.0" y="28" width="334" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vEN-x4-WSl" id="0rB-EL-wsP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="5eM-tb-Etz" id="yKp-XF-YF7"/>
+                                            <outlet property="delegate" destination="5eM-tb-Etz" id="GGw-KC-v7I"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="BJq-Tb-Meq" firstAttribute="top" secondItem="7Vd-pb-nYE" secondAttribute="bottom" constant="31" id="Dub-gc-w9B"/>
+                                    <constraint firstItem="7Vd-pb-nYE" firstAttribute="height" secondItem="g7l-KO-vYx" secondAttribute="height" multiplier="0.75323" id="KR8-JV-fhL"/>
+                                    <constraint firstItem="BJq-Tb-Meq" firstAttribute="centerX" secondItem="g7l-KO-vYx" secondAttribute="centerX" id="NhG-T1-1YS"/>
+                                    <constraint firstItem="7Vd-pb-nYE" firstAttribute="leading" secondItem="g7l-KO-vYx" secondAttribute="leading" constant="40" id="Nvh-Wl-Wu1"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Vd-pb-nYE" secondAttribute="trailing" constant="40" id="ffI-3F-exJ"/>
+                                    <constraint firstItem="7Vd-pb-nYE" firstAttribute="top" secondItem="g7l-KO-vYx" secondAttribute="top" constant="60" id="mmV-oM-zw4"/>
+                                    <constraint firstAttribute="bottom" secondItem="BJq-Tb-Meq" secondAttribute="bottom" constant="56" id="v0o-XA-GDL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xEF-YC-b2V" firstAttribute="leading" secondItem="ZCg-TC-ldZ" secondAttribute="leading" id="ERA-8e-wIT"/>
+                            <constraint firstItem="g7l-KO-vYx" firstAttribute="leading" secondItem="ZCg-TC-ldZ" secondAttribute="leading" id="Q6K-8D-VE9"/>
+                            <constraint firstItem="xEF-YC-b2V" firstAttribute="top" secondItem="ZCg-TC-ldZ" secondAttribute="top" id="agD-vK-kVA"/>
+                            <constraint firstItem="g7l-KO-vYx" firstAttribute="top" secondItem="ZCg-TC-ldZ" secondAttribute="top" id="iTv-60-fV9"/>
+                            <constraint firstItem="ZCg-TC-ldZ" firstAttribute="trailing" secondItem="g7l-KO-vYx" secondAttribute="trailing" id="p3j-Mf-R2q"/>
+                            <constraint firstItem="ZCg-TC-ldZ" firstAttribute="bottom" secondItem="xEF-YC-b2V" secondAttribute="bottom" id="qcP-bc-SGv"/>
+                            <constraint firstItem="ZCg-TC-ldZ" firstAttribute="bottom" secondItem="g7l-KO-vYx" secondAttribute="bottom" id="r7c-vf-L46"/>
+                            <constraint firstItem="ZCg-TC-ldZ" firstAttribute="trailing" secondItem="xEF-YC-b2V" secondAttribute="trailing" id="ryu-VM-jpm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZCg-TC-ldZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Location" id="GYx-mB-5u6"/>
+                    <connections>
+                        <outlet property="gymListView" destination="g7l-KO-vYx" id="Gdh-FA-ttO"/>
+                        <outlet property="gymNamesTableView" destination="7Vd-pb-nYE" id="C4V-qH-l49"/>
+                        <outlet property="noGymsLoggedView" destination="xEF-YC-b2V" id="rwE-A5-mvz"/>
+                        <segue destination="KcG-uG-DaW" kind="unwind" identifier="unwindToAddSessionViewController" unwindAction="unwindToAddSessionController:" id="tut-k0-3dk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z2P-fx-Yrb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="KcG-uG-DaW" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2847.826086956522" y="-1214.0625"/>
         </scene>
     </scenes>
 </document>
