@@ -17,6 +17,7 @@
 		9BBC6627237303540011897D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC6626237303540011897D /* RoundButton.swift */; };
 		9BBC66292373062B0011897D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC66282373062B0011897D /* PageViewController.swift */; };
 		9BBC662B237306EA0011897D /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC662A237306EA0011897D /* TutorialViewController.swift */; };
+		C9B36DB523874E67009735A1 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B36DB423874E67009735A1 /* AddLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9BBC6626237303540011897D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		9BBC66282373062B0011897D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		9BBC662A237306EA0011897D /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		C9B36DB423874E67009735A1 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				9BBC66282373062B0011897D /* PageViewController.swift */,
 				9BBC662A237306EA0011897D /* TutorialViewController.swift */,
 				9B26CA46237C48E900E2189A /* AddSessionViewController.swift */,
+				C9B36DB423874E67009735A1 /* AddLocationViewController.swift */,
 			);
 			path = "Boulder Climbing Journal";
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				9BBC6627237303540011897D /* RoundButton.swift in Sources */,
 				9BBC66292373062B0011897D /* PageViewController.swift in Sources */,
 				9BBC6614237300D50011897D /* ViewController.swift in Sources */,
+				C9B36DB523874E67009735A1 /* AddLocationViewController.swift in Sources */,
 				9B26CA47237C48E900E2189A /* AddSessionViewController.swift in Sources */,
 				9BBC661A237300D50011897D /* Boulder_Climbing_Journal.xcdatamodeld in Sources */,
 				9BBC662B237306EA0011897D /* TutorialViewController.swift in Sources */,
