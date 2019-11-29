@@ -47,7 +47,7 @@ class SessionsLogViewController: UIViewController {
             }
             //print(tuplesEventos)
         } catch let error as NSError {
-            print("Couldn't be saved. \(error): \(error.userInfo)")
+            print("Couldn't retrieve sessions. \(error): \(error.userInfo)")
         }
     }
     

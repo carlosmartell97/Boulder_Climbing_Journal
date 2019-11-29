@@ -696,7 +696,7 @@
         <!--Stats-->
         <scene sceneID="uqf-1O-RwY">
             <objects>
-                <viewController title="Stats" id="3Bu-F7-0y4" sceneMemberID="viewController">
+                <viewController title="Stats" id="3Bu-F7-0y4" customClass="StatsViewController" customModule="Boulder_Climbing_Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UEO-HC-pYd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
