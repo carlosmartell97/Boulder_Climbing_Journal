@@ -44,6 +44,7 @@ class AddClimbViewController: UIViewController {
     var missingMessageOk: String = "Okay"
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         onsightLabel.textColor = UIColor(red:32.0/255, green: 32.0/255, blue: 32.0/255, alpha: 0.6)
         flashLabel.textColor = UIColor(red:32.0/255, green: 32.0/255, blue: 32.0/255, alpha: 0.6)
         attemptsLabel.textColor = UIColor(red:32.0/255, green: 32.0/255, blue: 32.0/255, alpha: 0.6)
@@ -183,6 +184,6 @@ class AddClimbViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
     }
 }
