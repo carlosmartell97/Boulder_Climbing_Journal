@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96FDF6A71887405F9270B733 /* Pods_Boulder_Climbing_Journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CCE6A7E8F1820AD9496FD6F /* Pods_Boulder_Climbing_Journal.framework */; };
 		9B26CA47237C48E900E2189A /* AddSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26CA46237C48E900E2189A /* AddSessionViewController.swift */; };
 		9BBC6612237300D50011897D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC6611237300D50011897D /* AppDelegate.swift */; };
 		9BBC6614237300D50011897D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC6613237300D50011897D /* ViewController.swift */; };
@@ -53,10 +54,13 @@
 		C95421682391460500BB6596 /* SessionsLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95421672391460500BB6596 /* SessionsLogViewController.swift */; };
 		C954216B23914D2D00BB6596 /* LoggedSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C954216923914D2D00BB6596 /* LoggedSessionTableViewCell.swift */; };
 		C954216C23914D2D00BB6596 /* LoggedSessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954216A23914D2D00BB6596 /* LoggedSessionTableViewCell.xib */; };
+		C954216E2391623700BB6596 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C954216D2391623700BB6596 /* StatsViewController.swift */; };
 		C9B36DB523874E67009735A1 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B36DB423874E67009735A1 /* AddLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1EA4DD9892E3AE05971D4529 /* Pods-Boulder Climbing Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boulder Climbing Journal.release.xcconfig"; path = "Target Support Files/Pods-Boulder Climbing Journal/Pods-Boulder Climbing Journal.release.xcconfig"; sourceTree = "<group>"; };
+		4CCE6A7E8F1820AD9496FD6F /* Pods_Boulder_Climbing_Journal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boulder_Climbing_Journal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B26CA46237C48E900E2189A /* AddSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSessionViewController.swift; sourceTree = "<group>"; };
 		9BBC660E237300D50011897D /* Boulder Climbing Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boulder Climbing Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBC6611237300D50011897D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 		9BBC6626237303540011897D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		9BBC66282373062B0011897D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		9BBC662A237306EA0011897D /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		C72639C9FC237E5E2A9B7C88 /* Pods-Boulder Climbing Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boulder Climbing Journal.debug.xcconfig"; path = "Target Support Files/Pods-Boulder Climbing Journal/Pods-Boulder Climbing Journal.debug.xcconfig"; sourceTree = "<group>"; };
 		C95421032390A0A500BB6596 /* AddClimbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClimbViewController.swift; sourceTree = "<group>"; };
 		C954211F2390BA9E00BB6596 /* VB_tp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = VB_tp.png; path = ../../../../../Downloads/VB_tp.png; sourceTree = "<group>"; };
 		C95421202390BA9E00BB6596 /* VB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = VB.png; path = ../../../../../Downloads/VB.png; sourceTree = "<group>"; };
@@ -105,6 +110,7 @@
 		C95421672391460500BB6596 /* SessionsLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsLogViewController.swift; sourceTree = "<group>"; };
 		C954216923914D2D00BB6596 /* LoggedSessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedSessionTableViewCell.swift; sourceTree = "<group>"; };
 		C954216A23914D2D00BB6596 /* LoggedSessionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoggedSessionTableViewCell.xib; sourceTree = "<group>"; };
+		C954216D2391623700BB6596 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		C9B36DB423874E67009735A1 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,17 +119,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FDF6A71887405F9270B733 /* Pods_Boulder_Climbing_Journal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DD73C147DB13734B112DB64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CCE6A7E8F1820AD9496FD6F /* Pods_Boulder_Climbing_Journal.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7823882ECD097DA00CAB20B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C72639C9FC237E5E2A9B7C88 /* Pods-Boulder Climbing Journal.debug.xcconfig */,
+				1EA4DD9892E3AE05971D4529 /* Pods-Boulder Climbing Journal.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9BBC6605237300D50011897D = {
 			isa = PBXGroup;
 			children = (
 				9BBC6610237300D50011897D /* Boulder Climbing Journal */,
 				9BBC660F237300D50011897D /* Products */,
+				7823882ECD097DA00CAB20B6 /* Pods */,
+				1DD73C147DB13734B112DB64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,6 +212,7 @@
 				C95421672391460500BB6596 /* SessionsLogViewController.swift */,
 				C954216923914D2D00BB6596 /* LoggedSessionTableViewCell.swift */,
 				C954216A23914D2D00BB6596 /* LoggedSessionTableViewCell.xib */,
+				C954216D2391623700BB6596 /* StatsViewController.swift */,
 			);
 			path = "Boulder Climbing Journal";
 			sourceTree = "<group>";
@@ -197,9 +224,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BBC6623237300D60011897D /* Build configuration list for PBXNativeTarget "Boulder Climbing Journal" */;
 			buildPhases = (
+				2CF794424A4657CA7612246A /* [CP] Check Pods Manifest.lock */,
 				9BBC660A237300D50011897D /* Sources */,
 				9BBC660B237300D50011897D /* Frameworks */,
 				9BBC660C237300D50011897D /* Resources */,
+				26EC4DBA9AFF035E4CF8660C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -289,6 +318,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26EC4DBA9AFF035E4CF8660C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Boulder Climbing Journal/Pods-Boulder Climbing Journal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Boulder Climbing Journal/Pods-Boulder Climbing Journal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Boulder Climbing Journal/Pods-Boulder Climbing Journal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2CF794424A4657CA7612246A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Boulder Climbing Journal-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9BBC660A237300D50011897D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -304,6 +375,7 @@
 				9BBC661A237300D50011897D /* Boulder_Climbing_Journal.xcdatamodeld in Sources */,
 				9BBC662B237306EA0011897D /* TutorialViewController.swift in Sources */,
 				C95421682391460500BB6596 /* SessionsLogViewController.swift in Sources */,
+				C954216E2391623700BB6596 /* StatsViewController.swift in Sources */,
 				9BBC6612237300D50011897D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +520,7 @@
 		};
 		9BBC6624237300D60011897D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C72639C9FC237E5E2A9B7C88 /* Pods-Boulder Climbing Journal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +539,7 @@
 		};
 		9BBC6625237300D60011897D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EA4DD9892E3AE05971D4529 /* Pods-Boulder Climbing Journal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
