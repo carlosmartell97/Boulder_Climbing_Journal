@@ -15,6 +15,8 @@ class AddSessionViewController: UIViewController {
     
     var sessionDate: String = "When?"
     var sessionLocation: String = "Where?"
+    var newClimbGrade: String = "?"
+    var newClimbDesc: String = "?"
 
     override func viewDidLoad() {
         super.viewDidLoad(); print("viewDidLoad() AddSessionViewController")
@@ -25,6 +27,8 @@ class AddSessionViewController: UIViewController {
         
         print("session date: \(sessionDate)")
         print("session location: \(sessionLocation)")
+        print("new climb grade: \(newClimbGrade)")
+        print("new climb desc: \(newClimbDesc)")
         locationButton.setTitle(sessionLocation, for: .normal)
     }
     
