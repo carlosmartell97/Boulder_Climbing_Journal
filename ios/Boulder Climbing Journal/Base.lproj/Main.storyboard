@@ -110,6 +110,9 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="finishSessionButtonClicked:" destination="2Vd-5x-S5A" eventType="touchUpInside" id="iS7-Rr-lH4"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="Azt-XT-2UC">
                                 <rect key="frame" x="29" y="113" width="356" height="53"/>
@@ -196,11 +199,24 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="322" id="UMZ-Du-PCo"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoggedClimbCell" id="mzN-5o-AEO">
+                                        <rect key="frame" x="0.0" y="28" width="322" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mzN-5o-AEO" id="BFv-t7-q4x">
+                                            <rect key="frame" x="0.0" y="0.0" width="322" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2Vd-5x-S5A" id="ann-hM-4c4"/>
+                                    <outlet property="delegate" destination="2Vd-5x-S5A" id="uOE-ds-ei3"/>
+                                </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xq-FB-mVr">
-                                <rect key="frame" x="157" y="732" width="101" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xq-FB-mVr">
+                                <rect key="frame" x="53" y="732" width="308" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="101" id="AhO-GB-goj"/>
                                     <constraint firstAttribute="height" constant="34" id="cCo-KW-KUV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
@@ -220,6 +236,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3xi-CO-Kuw" firstAttribute="centerX" secondItem="etf-JI-wPP" secondAttribute="centerX" id="3hH-ZP-11e"/>
+                            <constraint firstItem="etf-JI-wPP" firstAttribute="trailing" secondItem="0Xq-FB-mVr" secondAttribute="trailing" constant="50" id="5HU-nb-Tf7"/>
                             <constraint firstItem="zuo-UA-3h7" firstAttribute="centerX" secondItem="etf-JI-wPP" secondAttribute="centerX" id="9Lv-3R-OMK"/>
                             <constraint firstItem="Azt-XT-2UC" firstAttribute="top" secondItem="etf-JI-wPP" secondAttribute="top" constant="25" id="HHE-75-e5h"/>
                             <constraint firstItem="gN4-8J-hCI" firstAttribute="top" secondItem="Azt-XT-2UC" secondAttribute="bottom" constant="50" id="Los-yn-5AM"/>
@@ -232,17 +249,22 @@
                             <constraint firstItem="0Xq-FB-mVr" firstAttribute="top" secondItem="3xi-CO-Kuw" secondAttribute="bottom" constant="16" id="du9-1P-96d"/>
                             <constraint firstItem="0m4-LR-LR6" firstAttribute="centerX" secondItem="etf-JI-wPP" secondAttribute="centerX" id="vht-1f-0bG"/>
                             <constraint firstItem="0m4-LR-LR6" firstAttribute="top" secondItem="0Xq-FB-mVr" secondAttribute="bottom" constant="34" id="ziT-Su-nD7"/>
+                            <constraint firstItem="0Xq-FB-mVr" firstAttribute="leading" secondItem="etf-JI-wPP" secondAttribute="leading" constant="50" id="zjL-Ga-V5T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="etf-JI-wPP"/>
                     </view>
                     <connections>
+                        <outlet property="climbsTableView" destination="zuo-UA-3h7" id="WyW-ex-ecc"/>
                         <outlet property="dateButton" destination="cnS-yR-TiK" id="iyT-u4-hhd"/>
                         <outlet property="locationButton" destination="41P-Zs-CiO" id="Hej-lT-h70"/>
+                        <outlet property="pointsLabel" destination="0Xq-FB-mVr" id="OCH-kj-6p3"/>
+                        <segue destination="RYg-k9-2ca" kind="unwind" identifier="unwindToMainMenuController" unwindAction="unwindToMainMenuController:" id="Gir-fx-N4v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Y5-hU-4ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RYg-k9-2ca" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2080" y="-847"/>
+            <point key="canvasLocation" x="2079.7101449275365" y="-847.09821428571422"/>
         </scene>
         <!--Add Climb-->
         <scene sceneID="GbD-cu-LG9">
@@ -632,6 +654,56 @@
                     <view key="view" contentMode="scaleToFill" id="hVK-Gn-PjU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5bR-YR-BES">
+                                <rect key="frame" x="54" y="259" width="340" height="100"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8y4-KV-qlV">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="NbN-7X-CF9"/>
+                                            <constraint firstAttribute="width" constant="100" id="qm7-DC-tuc"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8rb-8w-khw">
+                                        <rect key="frame" x="120" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="q1l-ay-rLO"/>
+                                            <constraint firstAttribute="width" constant="100" id="rLh-Gi-SzF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a3q-dk-Bf3">
+                                        <rect key="frame" x="240" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="NFj-jM-htF"/>
+                                            <constraint firstAttribute="width" constant="100" id="hUy-6x-l86"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCV-Am-Jcd">
+                                <rect key="frame" x="54" y="487" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BFd-0S-zSC">
+                                        <rect key="frame" x="17" y="14" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="5OK-84-21t"/>
+                                            <constraint firstAttribute="height" constant="100" id="8v2-Oe-xUe"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KG2-4q-Aft">
+                                        <rect key="frame" x="140" y="14" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="kZk-kq-Ab1"/>
+                                            <constraint firstAttribute="height" constant="100" id="lnc-gY-lqV"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Ays-DD-rHG"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ljg-ek-NDT"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="f5G-Q1-2HM"/>
                     </view>

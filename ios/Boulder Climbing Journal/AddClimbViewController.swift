@@ -179,8 +179,7 @@ class AddClimbViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! AddSessionViewController
-        destinationVC.newClimbGrade = selectedGrade
-        destinationVC.newClimbDesc = selectedDesc
+        destinationVC.addClimb(grade: selectedGrade, description: selectedDesc)
     }
     
     override func viewDidLoad() {
