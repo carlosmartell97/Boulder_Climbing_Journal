@@ -16,7 +16,17 @@
             android:id="@+id/fragmentAddSessionDate"
             android:layout_width="0dp"
             android:layout_weight=".5"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button_add_session_date_selection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="60dp"
+                android:text="@string/add_session_date"
+                android:layout_gravity="center_horizontal|center_vertical"/>
+
+        </FrameLayout>
 
         <FrameLayout
             android:layout_width="0dp"

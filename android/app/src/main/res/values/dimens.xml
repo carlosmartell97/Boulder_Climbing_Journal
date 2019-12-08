@@ -4,5 +4,6 @@
     <dimen name="main_menu_padding_bottom">80dp</dimen>
     <dimen name="main_menu_padding_right">16dp</dimen>
     <dimen name="main_menu_padding_left">16dp</dimen>
+    <dimen name="logged_climb_logo_size">70dp</dimen>
     <item name="main_menu_spaces_weight" format="float" type="dimen">.25</item>
 </resources>

@@ -1,21 +1,22 @@
 package mx.itesm.boulderclimbingjournal
 
 import android.app.AlertDialog
+import android.app.DatePickerDialog
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class AddSessionActivity : AppCompatActivity() {
 
     var recyclerViewLoggedClimbs: RecyclerView? = null
     var addClimbButton: Button? = null
     var addLocationButton: Button? = null
+    var dateSelectionButton: Button? = null
 
     internal var dbHelper = DatabaseHelper(this)
     val grades = arrayOf("VB", "V0", "V1", "V2", "V3", "V4", "V5", "V5", "V6", "V7", "V8", "V9", "V10")  // TODO: delete
@@ -35,15 +36,22 @@ class AddSessionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_session)
 
-        recyclerViewLoggedClimbs = findViewById(R.id.recyclerViewLoggedClimbs)
-        addClimbButton = findViewById(R.id.button_add_climb)
-        addLocationButton = findViewById(R.id.button_location)
+        setReferences()
 
         recyclerViewLoggedClimbs?.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         recyclerViewLoggedClimbs?.adapter = RecyclerViewLoggedClimbsAdapter(dbHelper.getAllLoggedClimbs())
 
-        loadDateQuestionFragment()
+        setCurrentDate()
+        setListeners()
+    }
 
+    private fun setReferences(){
+        recyclerViewLoggedClimbs = findViewById(R.id.recyclerViewLoggedClimbs)
+        addClimbButton = findViewById(R.id.button_add_climb)
+        addLocationButton = findViewById(R.id.button_location)
+        dateSelectionButton = findViewById(R.id.button_add_session_date_selection)
+    }
+    private fun setListeners(){
         addClimbButton?.setOnClickListener {
             dbHelper.addLoggedClimb(
                     LoggedClimb(grades[indexGrade], descriptions[indexDescription], "notes")
@@ -67,25 +75,32 @@ class AddSessionActivity : AppCompatActivity() {
                 showDialog("Climbs Listing", buffer.toString())
             }
         }
+        dateSelectionButton?.setOnClickListener {
+            showDatePickerDialog()
+        }
     }
 
     private fun refreshLoggedClimbs() {
         recyclerViewLoggedClimbs?.adapter = RecyclerViewLoggedClimbsAdapter(dbHelper.getAllLoggedClimbs())
     }
 
-    private fun loadDateQuestionFragment(){
-        val fragmentManager = supportFragmentManager.beginTransaction()
-        fragmentManager.replace(R.id.fragmentAddSessionDate, DateQuestionFragment() as Fragment)
-        fragmentManager.commit()
+    private fun dateToText(date: Date): String{
+        return SimpleDateFormat("MMM dd, yyyy").format(date)
     }
-    fun loadDateSelectionFragmentTodayYes(){
-        val fragmentManager = supportFragmentManager.beginTransaction()
-        fragmentManager.replace(R.id.fragmentAddSessionDate, DateSelectionFragment(clickedTodayYes = true) as Fragment)
-        fragmentManager.commit()
+    private fun setCurrentDate(){
+        val cal = Calendar.getInstance()
+        dateSelectionButton?.setText(dateToText(cal.time))
     }
-    fun loadDateSelectionFragmentTodayNo(){
-        val fragmentManager = supportFragmentManager.beginTransaction()
-        fragmentManager.replace(R.id.fragmentAddSessionDate, DateSelectionFragment(clickedTodayYes = false) as Fragment)
-        fragmentManager.commit()
+    private fun showDatePickerDialog(){
+        val cal = Calendar.getInstance()
+        val year = cal.get(Calendar.YEAR)
+        val month = cal.get(Calendar.MONTH)
+        val day = cal.get(Calendar.DAY_OF_MONTH)
+        val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+            cal.set(year, monthOfYear, dayOfMonth)
+            dateSelectionButton?.setText(dateToText(cal.time))
+        }, year, month, day)
+        dpd.datePicker.maxDate = cal.timeInMillis
+        dpd.show()
     }
 }
