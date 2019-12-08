@@ -61,16 +61,18 @@ class AddSessionActivity : AppCompatActivity() {
             refreshLoggedClimbs()
         }
         addLocationButton?.setOnClickListener {
-            var loggedClimbs: ArrayList<LoggedClimb> = dbHelper.getAllLoggedClimbs()
+            var loggedClimbs: Array<ArrayList<LoggedClimb>> = dbHelper.getAllLoggedClimbs()
             if(loggedClimbs.size == 0){
                 showDialog("Error", "No Data Found")
             } else {
                 val buffer = StringBuffer()
-                for(loggedClimb:LoggedClimb in loggedClimbs) {
-                    buffer.append("ID: " + loggedClimb.id.toString() + "\n")
-                    buffer.append("GRADE: " + loggedClimb.grade + "\n")
-                    buffer.append("DESC: " + loggedClimb.description + "\n")
-                    buffer.append("NOTES: " + loggedClimb.notes + "\n\n")
+                for(i in 0..11){
+                    for(loggedClimb:LoggedClimb in loggedClimbs[i]) {
+                        buffer.append("ID: " + loggedClimb.id.toString() + "\n")
+                        buffer.append("GRADE: " + loggedClimb.grade + "\n")
+                        buffer.append("DESC: " + loggedClimb.description + "\n")
+                        buffer.append("NOTES: " + loggedClimb.notes + "\n\n")
+                    }
                 }
                 showDialog("Climbs Listing", buffer.toString())
             }

@@ -1,19 +1,27 @@
 package mx.itesm.boulderclimbingjournal
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerViewLoggedClimbsAdapter(loggedClimbs: ArrayList<LoggedClimb>): RecyclerView.Adapter<RecyclerViewLoggedClimbsAdapter.ViewHolder>() {
+class RecyclerViewLoggedClimbsAdapter(loggedClimbs: Array<ArrayList<LoggedClimb>>): RecyclerView.Adapter<RecyclerViewLoggedClimbsAdapter.ViewHolder>() {
 
-    var loggedClimbs: ArrayList<LoggedClimb> = ArrayList<LoggedClimb>()
+    var loggedClimbs: Array<ArrayList<LoggedClimb>> = Array(12, { ArrayList<LoggedClimb>()})
+    var sections: ArrayList<Int> = ArrayList<Int>()
 
     init {
         this.loggedClimbs = loggedClimbs
+        for(i in 0..loggedClimbs.size-1){
+            if(loggedClimbs[i].size != 0){
+                sections.add(i)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,25 +29,28 @@ class RecyclerViewLoggedClimbsAdapter(loggedClimbs: ArrayList<LoggedClimb>): Rec
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(loggedClimbs[position])
+    override fun onBindViewHolder(holder: ViewHolder, section: Int) {
+        holder.bind(loggedClimbs[sections[section]])
     }
 
     override fun getItemCount(): Int {
-        return loggedClimbs.size
+        return sections.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private var climbsGradeCount: TextView? = null
         private var gradeImage: ImageView? = null
         private var descriptionImagesScroll: LinearLayout? = null
 
         init {
+            climbsGradeCount = itemView.findViewById(R.id.climbsGradeCountText)
             gradeImage = itemView.findViewById(R.id.gradeLogo)
             descriptionImagesScroll = itemView.findViewById(R.id.logosHorizontal)
         }
 
-        fun bind(loggedClimb: LoggedClimb){
-            when(loggedClimb.grade) {
+        fun bind(loggedClimbs: ArrayList<LoggedClimb>){
+            climbsGradeCount?.setText(loggedClimbs.size.toString())
+            when(loggedClimbs[0].grade) {
                 "VB" -> gradeImage?.setImageResource(R.drawable.ic_vb)
                 "V0" -> gradeImage?.setImageResource(R.drawable.ic_v0)
                 "V1" -> gradeImage?.setImageResource(R.drawable.ic_v1)
@@ -54,21 +65,24 @@ class RecyclerViewLoggedClimbsAdapter(loggedClimbs: ArrayList<LoggedClimb>): Rec
                 else -> gradeImage?.setImageResource(R.drawable.ic_v10)
             }
 
+            Log.d("TAG", loggedClimbs[0].grade+": "+loggedClimbs.size)
             descriptionImagesScroll?.removeAllViews()
-            val descriptionImageView: ImageView = ImageView(itemView.context)
-            val layoutSize: Float = itemView.resources.getDimension(R.dimen.logged_climb_logo_size)
-            descriptionImageView.layoutParams = LinearLayout.LayoutParams(layoutSize.toInt(), layoutSize.toInt())
-            when(loggedClimb.description) {
-                "onsight" -> descriptionImageView.setImageResource(R.drawable.ic_onsight)
-                "flash" -> descriptionImageView.setImageResource(R.drawable.ic_flash)
-                "attempts" -> descriptionImageView.setImageResource(R.drawable.ic_attempts)
-                else -> descriptionImageView.setImageResource(R.drawable.ic_repeat)
+            for(loggedClimb in loggedClimbs){
+                val descriptionImageView: ImageView = ImageView(itemView.context)
+                val layoutSize: Float = itemView.resources.getDimension(R.dimen.logged_climb_logo_size)
+                descriptionImageView.layoutParams = LinearLayout.LayoutParams(layoutSize.toInt(), layoutSize.toInt())
+                when(loggedClimb.description) {
+                    "onsight" -> descriptionImageView.setImageResource(R.drawable.ic_onsight)
+                    "flash" -> descriptionImageView.setImageResource(R.drawable.ic_flash)
+                    "attempts" -> descriptionImageView.setImageResource(R.drawable.ic_attempts)
+                    else -> descriptionImageView.setImageResource(R.drawable.ic_repeat)
+                }
+                descriptionImageView?.setOnClickListener {
+                    val toast: Toast = Toast.makeText(itemView.context, loggedClimb.id.toString()+": "+loggedClimbs[0].grade+", "+loggedClimb.description+". "+loggedClimb.notes+".", Toast.LENGTH_SHORT)
+                    toast.show()
+                }
+                descriptionImagesScroll?.addView(descriptionImageView)
             }
-            descriptionImageView?.setOnClickListener {
-                val toast: Toast = Toast.makeText(itemView.context, loggedClimb.id.toString()+": "+loggedClimb.grade+", "+loggedClimb.description+". "+loggedClimb.notes+".", Toast.LENGTH_SHORT)
-                toast.show()
-            }
-            descriptionImagesScroll?.addView(descriptionImageView)
         }
     }
 }

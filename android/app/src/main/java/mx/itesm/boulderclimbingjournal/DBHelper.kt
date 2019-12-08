@@ -55,19 +55,39 @@ class DatabaseHelper(context: Context) :
         //db.close()
     }
 
-    fun getAllLoggedClimbs(): ArrayList<LoggedClimb> {
-        var loggedClimbs: ArrayList<LoggedClimb> = ArrayList<LoggedClimb>()
+    fun getAllLoggedClimbs(): Array<ArrayList<LoggedClimb>> {
+        var loggedClimbs: Array<ArrayList<LoggedClimb>> = arrayOf(
+                ArrayList<LoggedClimb>(),   // VB
+                ArrayList<LoggedClimb>(),   // V0
+                ArrayList<LoggedClimb>(),   // V1
+                ArrayList<LoggedClimb>(),   // V2
+                ArrayList<LoggedClimb>(),   // V3
+                ArrayList<LoggedClimb>(),   // V4
+                ArrayList<LoggedClimb>(),   // V5
+                ArrayList<LoggedClimb>(),   // V6
+                ArrayList<LoggedClimb>(),   // V7
+                ArrayList<LoggedClimb>(),   // V8
+                ArrayList<LoggedClimb>(),   // V9
+                ArrayList<LoggedClimb>()    // V10
+        )
         val db: SQLiteDatabase = this.writableDatabase
         val cursor: Cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
         while(cursor.moveToNext()){
-            loggedClimbs.add(
-                    LoggedClimb(
-                            cursor.getInt(0),
-                            cursor.getString(1),
-                            cursor.getString(2),
-                            cursor.getString(3)
-                    )
-            )
+            val grade: String = cursor.getString(1)
+            when(grade){
+                "VB" -> loggedClimbs[0].add(LoggedClimb(cursor.getInt(0),grade,cursor.getString(2),cursor.getString(3)))
+                "V0" -> loggedClimbs[1].add(LoggedClimb(cursor.getInt(0),grade,cursor.getString(2),cursor.getString(3)))
+                "V1" -> loggedClimbs[2].add(LoggedClimb(cursor.getInt(0),grade,cursor.getString(2),cursor.getString(3)))
+                "V2" -> loggedClimbs[3].add(LoggedClimb(cursor.getInt(0),grade,cursor.getString(2),cursor.getString(3)))
+                "V3" -> loggedClimbs[4].add(LoggedClimb(cursor.getInt(0),grade,cursor.getString(2),cursor.getString(3)))
+                "V4" -> loggedClimbs[5].add(LoggedClimb(cursor.getInt(0),grade,cursor.getString(2),cursor.getString(3)))
+                "V5" -> loggedClimbs[6].add(LoggedClimb(cursor.getInt(0),grade,cursor.getString(2),cursor.getString(3)))
+                "V6" -> loggedClimbs[7].add(LoggedClimb(cursor.getInt(0),grade,cursor.getString(2),cursor.getString(3)))
+                "V7" -> loggedClimbs[8].add(LoggedClimb(cursor.getInt(0),grade,cursor.getString(2),cursor.getString(3)))
+                "V8" -> loggedClimbs[9].add(LoggedClimb(cursor.getInt(0),grade,cursor.getString(2),cursor.getString(3)))
+                "V9" -> loggedClimbs[10].add(LoggedClimb(cursor.getInt(0),grade,cursor.getString(2),cursor.getString(3)))
+                else -> loggedClimbs[11].add(LoggedClimb(cursor.getInt(0),grade,cursor.getString(2),cursor.getString(3)))   // V10
+            }
         }
         //db.close()
         return loggedClimbs

@@ -5,6 +5,14 @@
     android:layout_height="75dp"
     android:gravity="center_vertical">
 
+    <TextView
+        android:id="@+id/climbsGradeCountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/textColorPrimary"
+        android:text="5"/>
+
     <ImageView
         android:id="@+id/gradeLogo"
         android:layout_width="@dimen/logged_climb_logo_size"
