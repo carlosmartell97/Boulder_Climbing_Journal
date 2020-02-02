@@ -78,8 +78,7 @@ class RecyclerViewLoggedClimbsAdapter(loggedClimbs: Array<ArrayList<LoggedClimb>
                     else -> descriptionImageView.setImageResource(R.drawable.ic_repeat)
                 }
                 descriptionImageView?.setOnClickListener {
-                    val toast: Toast = Toast.makeText(itemView.context, loggedClimb.id.toString()+": "+loggedClimbs[0].grade+", "+loggedClimb.description+". "+loggedClimb.notes+".", Toast.LENGTH_SHORT)
-                    toast.show()
+                    Toast.makeText(itemView.context, loggedClimb.id.toString()+": "+loggedClimbs[0].grade+", "+loggedClimb.description+". "+loggedClimb.notes+". "+loggedClimb.points+"pts.", Toast.LENGTH_SHORT).show()
                 }
                 descriptionImagesScroll?.addView(descriptionImageView)
             }

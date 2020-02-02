@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddClimbActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/add_climb_grade_text"
+        android:textColor="@color/textColorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/buttons_row_1"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <ImageView
+            android:id="@+id/vb_logo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_weight=".25"
+            android:src="@drawable/ic_vb_before"/>
+        <ImageView
+            android:id="@+id/v0_logo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_weight=".25"
+            android:src="@drawable/ic_v0_before"/>
+        <ImageView
+            android:id="@+id/v1_logo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_weight=".25"
+            android:src="@drawable/ic_v1_before"/>
+        <ImageView
+            android:id="@+id/v2_logo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_weight=".25"
+            android:src="@drawable/ic_v2_before"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons_row_2"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/buttons_row_1">
+
+        <ImageView
+            android:id="@+id/v3_logo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_weight=".25"
+            android:src="@drawable/ic_v3_before"/>
+        <ImageView
+            android:id="@+id/v4_logo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_weight=".25"
+            android:src="@drawable/ic_v4_before"/>
+        <ImageView
+            android:id="@+id/v5_logo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_weight=".25"
+            android:src="@drawable/ic_v5_before"/>
+        <ImageView
+            android:id="@+id/v6_logo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_weight=".25"
+            android:src="@drawable/ic_v6_before"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/buttons_row_2">
+
+        <ImageView
+            android:id="@+id/v7_logo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_weight=".25"
+            android:src="@drawable/ic_v7_before"/>
+        <ImageView
+            android:id="@+id/v8_logo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_weight=".25"
+            android:src="@drawable/ic_v8_before"/>
+        <ImageView
+            android:id="@+id/v9_logo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_weight=".25"
+            android:src="@drawable/ic_v9_before"/>
+        <ImageView
+            android:id="@+id/v10_logo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_weight=".25"
+            android:src="@drawable/ic_v10_before"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="@string/add_climb_ascent_description"
+            android:textColor="@color/textColorPrimary" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/ic_help"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout3"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/saveClimbButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="left">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/onsight_logo"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/ic_onsight_before" />
+
+            <TextView
+                android:id="@+id/onsight_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="onsight"
+                android:textColor="@color/textColorSecondary" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/flash_logo"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/ic_flash_before" />
+
+            <TextView
+                android:id="@+id/flash_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="flash"
+                android:textColor="@color/textColorSecondary" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/attempts_logo"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/ic_attempts_before" />
+
+            <TextView
+                android:id="@+id/attempts_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="attempts"
+                android:textColor="@color/textColorSecondary" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/repeat_logo"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/ic_repeat_before" />
+
+            <TextView
+                android:id="@+id/repeat_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="repeat"
+                android:textColor="@color/textColorSecondary" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/saveClimbButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/add_climb_add_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

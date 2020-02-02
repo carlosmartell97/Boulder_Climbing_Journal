@@ -11,4 +11,7 @@
     <string name="add_session_notes">session notes</string>
     <string name="add_session_points_text_initial">0 points</string>
     <string name="add_session_finish_session">Finish Session</string>
+    <string name="add_climb_grade_text">grade</string>
+    <string name="add_climb_add_button">add climb</string>
+    <string name="add_climb_ascent_description">ascent description</string>
 </resources>

@@ -1,17 +1,19 @@
 package mx.itesm.boulderclimbingjournal
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.math.roundToInt
 
 class AddSessionActivity : AppCompatActivity() {
 
@@ -23,31 +25,6 @@ class AddSessionActivity : AppCompatActivity() {
 
     internal var dbHelper = DatabaseHelper(this)
     var points: Int = 0
-    val gradePoints: Array<Int> = arrayOf(
-                //                      onsight     flash   attempts    repeat
-            3,  // VB   -@              4           4       3           3
-            3,  // V0   -@              4           4       3           3
-            4,  // V1   -@@             5           5       4           4
-            6,  // V2   -@@@            8           8       7           6
-            8,  // V3   -@@@            10          10      9           8
-            11, // V4   -@@@@           14          14      12          11
-            14, // V5   -@@@@           18          18      15          14
-            18, // V6   -@@@@@          23          23      20          18
-            22, // V7   -@@@@@          29          28      24          22
-            27, // V8   -@@@@@@         35          34      30          27
-            33, // V9   -@@@@@@@        43          41      36          33
-            40  // V10  -@@@@@@@@       52          50      44          40
-    )
-    val gradeMultipliers: Array<Double> = arrayOf(
-            1.3,    // onsight
-            1.25,   // flash
-            1.1,    // attempts
-            1.0     // repeat
-    )
-    val grades = arrayOf("VB", "V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10")  // TODO: delete
-    val descriptions = arrayOf("onsight", "flash", "attempts", "repeat")  // TODO: delete
-    var indexGrade: Int = 0  // TODO: delete
-    var indexDescription: Int = 0  // TODO: delete
 
     fun showDialog(title : String,Message : String){  // TODO: delete
         val builder = AlertDialog.Builder(this)
@@ -79,13 +56,7 @@ class AddSessionActivity : AppCompatActivity() {
     }
     private fun setListeners(){
         addClimbButton?.setOnClickListener {
-            dbHelper.addLoggedClimb(
-                    LoggedClimb(grades[indexGrade], descriptions[indexDescription], "notes")
-            )
-            points += (gradePoints[indexGrade]*gradeMultipliers[indexDescription]).roundToInt()   // TODO: delete
-            indexGrade = (indexGrade+1)%grades.size  // TODO: delete
-            indexDescription = (indexDescription+1)%descriptions.size  // TODO: delete
-            refreshLoggedClimbs()
+            startActivityForResult(Intent(this, AddClimbActivity::class.java), 1)
         }
         addLocationButton?.setOnClickListener {
             var loggedClimbs: Array<ArrayList<LoggedClimb>> = dbHelper.getAllLoggedClimbs()
@@ -106,6 +77,18 @@ class AddSessionActivity : AppCompatActivity() {
         }
         dateSelectionButton?.setOnClickListener {
             showDatePickerDialog()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode==Activity.RESULT_OK && data!=null){
+            val loggedClimb: LoggedClimb = data.getSerializableExtra("loggedClimb") as LoggedClimb
+            dbHelper.addLoggedClimb(loggedClimb)
+            points += loggedClimb.points
+            refreshLoggedClimbs()
+        } else {
+            Toast.makeText(this, "adding climb cancelled or something went wrong...", Toast.LENGTH_SHORT).show()
         }
     }
 
