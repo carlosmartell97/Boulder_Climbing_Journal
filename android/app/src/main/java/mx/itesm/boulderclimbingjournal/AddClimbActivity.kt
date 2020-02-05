@@ -5,10 +5,8 @@ import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlin.math.roundToInt
@@ -27,6 +25,7 @@ class AddClimbActivity : AppCompatActivity() {
     var v8Button: ImageView? = null
     var v9Button: ImageView? = null
     var v10Button: ImageView? = null
+    var helpButton: ImageView? = null
     var onsightButton: ImageView? = null
     var flashButton: ImageView? = null
     var attemptsButton: ImageView? = null
@@ -35,6 +34,7 @@ class AddClimbActivity : AppCompatActivity() {
     var flashText: TextView? = null
     var attemptsText: TextView? = null
     var repeatText: TextView? = null
+    var climbNotes: EditText? = null
     var saveClimbButton: Button? = null
 
     var previousGradeDrawableIndex: Int = -1
@@ -91,6 +91,7 @@ class AddClimbActivity : AppCompatActivity() {
         v8Button = findViewById(R.id.v8_logo)
         v9Button = findViewById(R.id.v9_logo)
         v10Button = findViewById(R.id.v10_logo)
+        helpButton = findViewById(R.id.addClimbHelpButton)
         onsightButton = findViewById(R.id.onsight_logo)
         flashButton = findViewById(R.id.flash_logo)
         attemptsButton = findViewById(R.id.attempts_logo)
@@ -99,6 +100,7 @@ class AddClimbActivity : AppCompatActivity() {
         flashText = findViewById(R.id.flash_text)
         attemptsText = findViewById(R.id.attempts_text)
         repeatText = findViewById(R.id.repeat_text)
+        climbNotes = findViewById(R.id.editTextClimbNotes)
         saveClimbButton = findViewById(R.id.saveClimbButton)
     }
 
@@ -134,13 +136,22 @@ class AddClimbActivity : AppCompatActivity() {
         setListenerAscentDescription(flashButton, flashText, 1, R.drawable.ic_flash, R.drawable.ic_flash_before)
         setListenerAscentDescription(attemptsButton, attemptsText, 2, R.drawable.ic_attempts, R.drawable.ic_attempts_before)
         setListenerAscentDescription(repeatButton, repeatText, 3, R.drawable.ic_repeat, R.drawable.ic_repeat_before)
+        helpButton?.setOnClickListener{
+            var alertBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
+            alertBuilder.setTitle("Ascent descriptions")
+            alertBuilder.setMessage("onsight: reaching the top on your first attempt by yourself, without any prior tips, information, nor seeing someone else complete it before you.\n\n"
+                                +"flash: reaching the top on your first attempt, with some information beforehand (tips, seeing someone else complete it before you, etc).\n\n"
+                                +"attempts: reaching the top in more than one attempt.\n\n"
+                                +"repeat: ascents you had already completed before some other day.")
+            alertBuilder.show()
+        }
         saveClimbButton?.setOnClickListener{
             Log.e("TAG", "add climb button clicked")
             if(loggedClimbPoints != 0){     // if both grade and description have been selected
                 val returnIntent: Intent = Intent()
                 returnIntent.putExtra(
                         "loggedClimb",
-                        LoggedClimb(grades[selectedGradeIndex], descriptions[selectedAscentDescriptionIndex], "notes", loggedClimbPoints)
+                        LoggedClimb(grades[selectedGradeIndex], descriptions[selectedAscentDescriptionIndex], climbNotes?.text.toString(), loggedClimbPoints)
                 )
                 setResult(Activity.RESULT_OK, returnIntent)
                 finish()

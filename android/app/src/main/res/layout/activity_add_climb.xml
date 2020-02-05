@@ -96,15 +96,16 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="40dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center_vertical"
         app:layout_constraintTop_toBottomOf="@+id/buttons_row_2">
 
         <ImageView
@@ -112,25 +113,28 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_weight=".25"
-            android:src="@drawable/ic_v7_before"/>
+            android:src="@drawable/ic_v7_before" />
+
         <ImageView
             android:id="@+id/v8_logo"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_weight=".25"
-            android:src="@drawable/ic_v8_before"/>
+            android:src="@drawable/ic_v8_before" />
+
         <ImageView
             android:id="@+id/v9_logo"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_weight=".25"
-            android:src="@drawable/ic_v9_before"/>
+            android:src="@drawable/ic_v9_before" />
+
         <ImageView
             android:id="@+id/v10_logo"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_weight=".25"
-            android:src="@drawable/ic_v10_before"/>
+            android:src="@drawable/ic_v10_before" />
     </LinearLayout>
 
     <LinearLayout
@@ -153,6 +157,7 @@
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/addClimbHelpButton"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:src="@drawable/ic_help"
@@ -163,15 +168,15 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:gravity="left"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/saveClimbButton"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextClimbNotes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:gravity="left">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -184,17 +189,17 @@
 
             <TextView
                 android:id="@+id/onsight_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="10dp"
+                android:paddingLeft="15dp"
                 android:text="onsight"
                 android:textColor="@color/textColorSecondary" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -207,17 +212,17 @@
 
             <TextView
                 android:id="@+id/flash_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="10dp"
+                android:paddingLeft="15dp"
                 android:text="flash"
                 android:textColor="@color/textColorSecondary" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -230,17 +235,18 @@
 
             <TextView
                 android:id="@+id/attempts_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="attempts"
                 android:textColor="@color/textColorSecondary" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -253,16 +259,28 @@
 
             <TextView
                 android:id="@+id/repeat_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="10dp"
+                android:paddingLeft="15dp"
                 android:text="repeat"
                 android:textColor="@color/textColorSecondary" />
 
         </LinearLayout>
 
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/editTextClimbNotes"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_climb_notes"
+        android:textColor="@color/textColorPrimary"
+        android:textColorHint="@color/textColorSecondary"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/saveClimbButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/saveClimbButton"

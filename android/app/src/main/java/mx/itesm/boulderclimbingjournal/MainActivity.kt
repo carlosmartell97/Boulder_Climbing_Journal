@@ -21,11 +21,10 @@ class MainActivity : AppCompatActivity() {
         val gradeConversionButton: Button = findViewById(R.id.menu_grade_conversion_button)
 
         addSessionsButton.setOnClickListener(View.OnClickListener {
-            Log.e(tag, "add session button clicked.")
             startActivity(Intent(this, AddSessionActivity::class.java))
         })
         sessionsLogButton.setOnClickListener(View.OnClickListener {
-            Log.e(tag, "sessions log button clicked.")
+            startActivity(Intent(this, SessionsLogActivity::class.java))
         })
         statsButton.setOnClickListener(View.OnClickListener {
             Log.e(tag, "stats button clicked.")
