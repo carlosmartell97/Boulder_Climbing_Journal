@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +31,7 @@ class AddSessionActivity : AppCompatActivity() {
     var sessionLocation: String? = null
     var points: Int = 0
     var numClimbs: Int = 0
+    var firstLoggedGym: Boolean = false
     var loggedClimbs: Array<ArrayList<LoggedClimb>> = arrayOf(
             ArrayList<LoggedClimb>(),   // VB
             ArrayList<LoggedClimb>(),   // V0
@@ -71,8 +73,16 @@ class AddSessionActivity : AppCompatActivity() {
         dateSelectionButton?.setOnClickListener {
             showDatePickerDialog()
         }
-        addLocationButton?.setOnClickListener {
-            startActivityForResult(Intent(this, AddLocationActivity::class.java), 2)
+        val loggedGyms: ArrayList<LoggedGym> = dbHelper.getAllLoggedGyms()
+        if(loggedGyms.isEmpty()){
+            firstLoggedGym = true
+            addLocationButton?.setOnClickListener {
+                showFirstGymNameDialog()
+            }
+        } else {
+            addLocationButton?.setOnClickListener {
+                startActivityForResult(Intent(this, AddLocationActivity::class.java), 2)
+            }
         }
         addClimbButton?.setOnClickListener {
             startActivityForResult(Intent(this, AddClimbActivity::class.java), 1)
@@ -92,6 +102,11 @@ class AddSessionActivity : AppCompatActivity() {
                             LoggedSession(dateToTextComplete(sessionDate), sessionLocation.toString(), notesEditText?.text.toString(), points, numClimbs),
                             climbIds
                     )
+                    if(firstLoggedGym){
+                        dbHelper.addLoggedGym(
+                                LoggedGym(sessionLocation.toString())
+                        )
+                    }
                     Toast.makeText(this, "session successfully saved!", Toast.LENGTH_SHORT).show()
                     finish()
                 }
@@ -161,5 +176,25 @@ class AddSessionActivity : AppCompatActivity() {
         }, year, month, day)
         dpd.datePicker.maxDate = cal.timeInMillis
         dpd.show()
+    }
+    private fun showFirstGymNameDialog(){
+        val alert = AlertDialog.Builder(this)
+        val gymNameView = layoutInflater.inflate(R.layout.gym_name_edit_text, null)
+        val gymNameEditText: EditText = gymNameView.findViewById(R.id.gymNameEditText)
+        if(sessionLocation != null){
+            gymNameEditText.setText(sessionLocation)
+        }
+        alert.setView(gymNameView)
+        alert.setPositiveButton("ADD"){_, _ ->
+            val enteredGymName = gymNameEditText.text.toString()
+            if(enteredGymName == ""){
+                Toast.makeText(this, "enter a valid gym name", Toast.LENGTH_SHORT).show()
+            } else {
+                sessionLocation = enteredGymName
+                addLocationButton?.setText(sessionLocation)
+            }
+        }
+        alert.setNegativeButton("CANCEL", null)
+        alert.show()
     }
 }

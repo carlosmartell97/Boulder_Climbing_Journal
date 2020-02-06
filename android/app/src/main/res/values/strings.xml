@@ -18,4 +18,5 @@
     <string name="add_location_text_header">choose a gym</string>
     <string name="add_session_date_header">Date:</string>
     <string name="add_session_location_header">Location:</string>
+    <string name="gym_name_hint">gym name</string>
 </resources>

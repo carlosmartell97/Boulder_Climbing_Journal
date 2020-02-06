@@ -16,6 +16,7 @@ class DatabaseHelper(context: Context) :
         val TABLE_NAME_CLIMB = "Logged_Climb"
         val TABLE_NAME_SESSION = "Logged_Session"
         val TABLE_NAME_SESSION_CLIMB = "Session_Climb"
+        val TABLE_NAME_GYM = "Logged_Gym"
 
         val COL_CLIMB_ID = "ID"
         val COL_CLIMB_GRADE = "GRADE"
@@ -33,6 +34,9 @@ class DatabaseHelper(context: Context) :
         val COL_SESSION_CLIMB_ID = "ID"
         val COL_SESSION_CLIMB_SESSION_ID = "SESSION_ID"
         val COL_SESSION_CLIMB_CLIMB_ID = "CLIMB_ID"
+
+        val COL_GYM_ID = "ID"
+        val COL_GYM_NAME = "NAME"
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -55,12 +59,16 @@ class DatabaseHelper(context: Context) :
                 "$COL_SESSION_CLIMB_CLIMB_ID INTEGER,"+
                 "FOREIGN KEY($COL_SESSION_CLIMB_SESSION_ID) REFERENCES $TABLE_NAME_SESSION($COL_SESSION_ID),"+
                 "FOREIGN KEY($COL_SESSION_CLIMB_CLIMB_ID) REFERENCES $TABLE_NAME_CLIMB($COL_CLIMB_ID))")
+        db.execSQL("CREATE TABLE $TABLE_NAME_GYM ("+
+                "$COL_GYM_ID INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                "$COL_GYM_NAME TEXT)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_CLIMB)
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_SESSION)
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_SESSION_CLIMB)
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_GYM)
         onCreate(db)
     }
 
@@ -97,6 +105,13 @@ class DatabaseHelper(context: Context) :
         return db.insert(TABLE_NAME_SESSION_CLIMB, null, contentValues)
     }
 
+    fun addLoggedGym(loggedGym: LoggedGym): Long{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COL_GYM_NAME, loggedGym.name)
+        return db.insert(TABLE_NAME_GYM, null, contentValues)
+    }
+
     fun updateLoggedClimb(loggedClimb: LoggedClimb): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
@@ -118,6 +133,13 @@ class DatabaseHelper(context: Context) :
         return db.update(TABLE_NAME_SESSION, contentValues, "${COL_SESSION_ID}_ID = ?", arrayOf(loggedSession.id.toString()))
     }
 
+    fun updateLoggedGym(loggedGym: LoggedGym): Int{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COL_GYM_NAME, loggedGym.name)
+        return db.update(TABLE_NAME_GYM, contentValues, "${COL_GYM_ID}_ID = ?", arrayOf(loggedGym.id.toString()))
+    }
+
     fun deleteLoggedClimb(loggedClimbId: Long) {
         val db = this.writableDatabase
         db.delete(TABLE_NAME_CLIMB,"$COL_CLIMB_ID = ?", arrayOf(loggedClimbId.toString()))
@@ -130,6 +152,12 @@ class DatabaseHelper(context: Context) :
             deleteLoggedClimb(climbId)
         }*/
         db.delete(TABLE_NAME_SESSION,"$COL_SESSION_ID = ?", arrayOf(loggedSession.id.toString()))
+        //db.close()
+    }
+
+    fun deleteLoggedGym(loggedGymId: Long) {
+        val db = this.writableDatabase
+        db.delete(TABLE_NAME_GYM,"$COL_GYM_ID = ?", arrayOf(loggedGymId.toString()))
         //db.close()
     }
 
@@ -151,5 +179,21 @@ class DatabaseHelper(context: Context) :
         }
         //db.close()
         return loggedSessions
+    }
+
+    fun getAllLoggedGyms(): ArrayList<LoggedGym> {
+        var loggedGyms: ArrayList<LoggedGym> = ArrayList<LoggedGym>()
+        val db: SQLiteDatabase = this.writableDatabase
+        val cursor: Cursor = db.rawQuery("SELECT * FROM $TABLE_NAME_GYM", null)
+        while(cursor.moveToNext()){
+            loggedGyms.add(
+                    LoggedGym(
+                            cursor.getInt(0),
+                            cursor.getString(1)
+                    )
+            )
+        }
+        //db.close()
+        return loggedGyms
     }
 }

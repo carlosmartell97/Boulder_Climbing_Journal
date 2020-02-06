@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerViewGymNamesAdapter(gymNames: ArrayList<String>, addLocationActivityContext: Context): RecyclerView.Adapter<RecyclerViewGymNamesAdapter.ViewHolder>() {
+class RecyclerViewGymNamesAdapter(gymNames: ArrayList<LoggedGym>, addLocationActivityContext: Context): RecyclerView.Adapter<RecyclerViewGymNamesAdapter.ViewHolder>() {
 
-    var gymNames: ArrayList<String> = ArrayList<String>()
+    var gymNames: ArrayList<LoggedGym> = ArrayList<LoggedGym>()
     var addLocationActivityContext: Context? = null
 
     init {
@@ -37,10 +37,10 @@ class RecyclerViewGymNamesAdapter(gymNames: ArrayList<String>, addLocationActivi
             gymNameTextView = itemView.findViewById(R.id.gymNameTextView)
         }
 
-        fun bind(gymName: String, addLocationActivityContext: Context?){
-            gymNameTextView?.setText(gymName)
+        fun bind(gymName: LoggedGym, addLocationActivityContext: Context?){
+            gymNameTextView?.setText(gymName.name)
             gymNameTextView?.setOnClickListener {
-                (addLocationActivityContext as AddLocationActivity).gymNameSelected(gymName)
+                (addLocationActivityContext as AddLocationActivity).gymNameSelected(gymName.name.toString())
             }
         }
     }
