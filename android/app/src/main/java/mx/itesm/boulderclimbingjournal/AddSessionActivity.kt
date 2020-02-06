@@ -60,6 +60,14 @@ class AddSessionActivity : AppCompatActivity() {
         setListeners()
     }
 
+    override fun onBackPressed() {
+        if(numClimbs!=0 && points!=0){
+            showGoBackUnsavedDialog()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
     private fun setReferences(){
         recyclerViewLoggedClimbs = findViewById(R.id.recyclerViewLoggedClimbs)
         addClimbButton = findViewById(R.id.button_add_climb)
@@ -195,6 +203,15 @@ class AddSessionActivity : AppCompatActivity() {
             }
         }
         alert.setNegativeButton("CANCEL", null)
+        alert.show()
+    }
+    private fun showGoBackUnsavedDialog(){
+        val alert = AlertDialog.Builder(this)
+        alert.setMessage("You haven't saved this session yet, are you sure you want to leave?")
+        alert.setPositiveButton("YES"){_, _ ->
+            super.onBackPressed()
+        }
+        alert.setNegativeButton("NO", null)
         alert.show()
     }
 }
