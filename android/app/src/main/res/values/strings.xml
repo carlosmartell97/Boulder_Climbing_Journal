@@ -19,4 +19,6 @@
     <string name="add_session_date_header">Date:</string>
     <string name="add_session_location_header">Location:</string>
     <string name="gym_name_hint">gym name</string>
+    <string name="stats_points_header">points per session</string>
+    <string name="stats_climbs_header">climbs per session</string>
 </resources>

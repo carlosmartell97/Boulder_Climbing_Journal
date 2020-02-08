@@ -30,6 +30,10 @@ class DatabaseHelper(context: Context) :
         val COL_SESSION_NOTES = "NOTES"
         val COL_SESSION_POINTS = "POINTS"
         val COL_SESSION_CLIMBS = "CLIMBS"
+        val COL_SESSION_ONSIGHT_CLIMBS = "ONSIGHT_CLIMBS"
+        val COL_SESSION_FLASH_CLIMBS = "FLASH_CLIMBS"
+        val COL_SESSION_ATTEMPTS_CLIMBS = "ATTEMPTS_CLIMBS"
+        val COL_SESSION_REPEAT_CLIMBS = "REPEAT_CLIMBS"
 
         val COL_SESSION_CLIMB_ID = "ID"
         val COL_SESSION_CLIMB_SESSION_ID = "SESSION_ID"
@@ -52,7 +56,11 @@ class DatabaseHelper(context: Context) :
                 "$COL_SESSION_LOCATION TEXT,"+
                 "$COL_SESSION_NOTES TEXT,"+
                 "$COL_SESSION_POINTS INTEGER,"+
-                "$COL_SESSION_CLIMBS INTEGER)")
+                "$COL_SESSION_CLIMBS INTEGER,"+
+                "$COL_SESSION_ONSIGHT_CLIMBS INTEGER,"+
+                "$COL_SESSION_FLASH_CLIMBS INTEGER,"+
+                "$COL_SESSION_ATTEMPTS_CLIMBS INTEGER,"+
+                "$COL_SESSION_REPEAT_CLIMBS INTEGER)")
         db.execSQL("CREATE TABLE $TABLE_NAME_SESSION_CLIMB ("+
                 "$COL_SESSION_CLIMB_ID INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 "$COL_SESSION_CLIMB_SESSION_ID INTEGER,"+
@@ -90,6 +98,10 @@ class DatabaseHelper(context: Context) :
         contentValues.put(COL_SESSION_NOTES, loggedSession.notes)
         contentValues.put(COL_SESSION_POINTS, loggedSession.points)
         contentValues.put(COL_SESSION_CLIMBS, loggedSession.climbs)
+        contentValues.put(COL_SESSION_ONSIGHT_CLIMBS, loggedSession.onsightClimbs)
+        contentValues.put(COL_SESSION_FLASH_CLIMBS, loggedSession.flashClimbs)
+        contentValues.put(COL_SESSION_ATTEMPTS_CLIMBS, loggedSession.attemptsClimbs)
+        contentValues.put(COL_SESSION_REPEAT_CLIMBS, loggedSession.repeatClimbs)
         val sessionId: Long = db.insert(TABLE_NAME_SESSION, null, contentValues)
         for(climbId:Long in climbIds){
             addClimbSession(climbId, sessionId)
@@ -130,6 +142,10 @@ class DatabaseHelper(context: Context) :
         contentValues.put(COL_SESSION_NOTES, loggedSession.notes)
         contentValues.put(COL_SESSION_POINTS, loggedSession.points)
         contentValues.put(COL_SESSION_CLIMBS, loggedSession.climbs)
+        contentValues.put(COL_SESSION_ONSIGHT_CLIMBS, loggedSession.onsightClimbs)
+        contentValues.put(COL_SESSION_FLASH_CLIMBS, loggedSession.flashClimbs)
+        contentValues.put(COL_SESSION_ATTEMPTS_CLIMBS, loggedSession.attemptsClimbs)
+        contentValues.put(COL_SESSION_REPEAT_CLIMBS, loggedSession.repeatClimbs)
         return db.update(TABLE_NAME_SESSION, contentValues, "${COL_SESSION_ID}_ID = ?", arrayOf(loggedSession.id.toString()))
     }
 
@@ -173,7 +189,11 @@ class DatabaseHelper(context: Context) :
                             cursor.getString(2),
                             cursor.getString(3),
                             cursor.getInt(4),
-                            cursor.getInt(5)
+                            cursor.getInt(5),
+                            cursor.getInt(6),
+                            cursor.getInt(7),
+                            cursor.getInt(8),
+                            cursor.getInt(9)
                     )
             )
         }

@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SessionsLogActivity::class.java))
         })
         statsButton.setOnClickListener(View.OnClickListener {
-            Log.e(tag, "stats button clicked.")
+            startActivity(Intent(this, StatsActivity::class.java))
         })
         gradeConversionButton.setOnClickListener(View.OnClickListener {
             Log.e(tag, "grade conversion button clicked.")

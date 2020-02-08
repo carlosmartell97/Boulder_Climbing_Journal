@@ -30,7 +30,12 @@ class AddSessionActivity : AppCompatActivity() {
     var sessionDate: Date? = null
     var sessionLocation: String? = null
     var points: Int = 0
-    var numClimbs: Int = 0
+    var numClimbsTotal: Int = 0
+    var numOnsightClimbs: Int = 0
+    var numFlashClimbs: Int = 0
+    var numAttemptsClimbs: Int = 0
+    var numRepeatClimbs: Int = 0
+
     var firstLoggedGym: Boolean = false
     var loggedClimbs: Array<ArrayList<LoggedClimb>> = arrayOf(
             ArrayList<LoggedClimb>(),   // VB
@@ -61,7 +66,7 @@ class AddSessionActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if(numClimbs!=0 && points!=0){
+        if(numClimbsTotal!=0 && points!=0){
             showGoBackUnsavedDialog()
         } else {
             super.onBackPressed()
@@ -107,7 +112,8 @@ class AddSessionActivity : AppCompatActivity() {
                     Toast.makeText(this, "you forgot to add a location", Toast.LENGTH_SHORT).show()
                 } else {
                     dbHelper.addLoggedSession(
-                            LoggedSession(dateToTextComplete(sessionDate), sessionLocation.toString(), notesEditText?.text.toString(), points, numClimbs),
+                            LoggedSession(dateToTextComplete(sessionDate), sessionLocation.toString(), notesEditText?.text.toString(), points, numClimbsTotal,
+                                            numOnsightClimbs, numFlashClimbs, numAttemptsClimbs, numRepeatClimbs),
                             climbIds
                     )
                     if(firstLoggedGym){
@@ -127,11 +133,10 @@ class AddSessionActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode==1 && resultCode==Activity.RESULT_OK && data!=null){
-            numClimbs++
+            numClimbsTotal++
             val loggedClimb: LoggedClimb = data.getSerializableExtra("loggedClimb") as LoggedClimb
             points += loggedClimb.points
-            val grade: String? = loggedClimb.grade
-            when(grade){
+            when(loggedClimb.grade){
                 "VB" -> loggedClimbs[0].add(loggedClimb)
                 "V0" -> loggedClimbs[1].add(loggedClimb)
                 "V1" -> loggedClimbs[2].add(loggedClimb)
@@ -144,6 +149,12 @@ class AddSessionActivity : AppCompatActivity() {
                 "V8" -> loggedClimbs[9].add(loggedClimb)
                 "V9" -> loggedClimbs[10].add(loggedClimb)
                 else -> loggedClimbs[11].add(loggedClimb)   // V10
+            }
+            when(loggedClimb.description){
+                "onsight" -> numOnsightClimbs++
+                "flash" -> numFlashClimbs++
+                "attempts" -> numAttemptsClimbs++
+                else -> numRepeatClimbs++
             }
             refreshLoggedClimbs()
         }

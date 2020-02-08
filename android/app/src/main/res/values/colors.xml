@@ -7,4 +7,26 @@
     <color name="textColorPrimary">#212121</color>
     <color name="textColorSecondary">#757575</color>
     <color name="dividerColor">#BDBDBD</color>
+
+    <color name="colorMaterialBlueGrey">#607D8B</color>
+    <color name="colorMaterialGrey">#9E9E9E</color>
+    <color name="colorMaterialBrown">#795548</color>
+    <color name="colorMaterialDeepOrange">#FF5722</color>
+    <color name="colorMaterialOrange">#FF9800</color>
+    <color name="colorMaterialAmber">#FFC107</color>
+    <color name="colorMaterialYellow">#FFEB3B</color>
+    <color name="colorMaterialLime">#CDDC39</color>
+    <color name="colorMaterialLightGreen">#8BC34A</color>
+    <color name="colorMaterialGreen">#4CAF50</color>
+    <color name="colorMaterialTeal">#009688</color>
+    <color name="colorMaterialCyan">#00BCD4</color>
+    <color name="colorMaterialLightBlue">#03A9F4</color>
+    <color name="colorMaterialBlue">#2196F3</color>
+    <color name="colorMaterialIndigo">#3F51B5</color>
+    <color name="colorMaterialDeepPurple">#673AB7</color>
+    <color name="colorMaterialPurple">#9C27B0</color>
+    <color name="colorMaterialPink">#E91E63</color>
+    <color name="colorMaterialRed">#F44336</color>
+
+    <color name="colorDeepPurpleLight">#9575CD</color>
 </resources>
